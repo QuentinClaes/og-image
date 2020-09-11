@@ -121,7 +121,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <body>
         <div>
             <div class="spacer">
-            <h2>test</h2>
+            <h2>www.cuustomer.com</h2>
             <div class="logo-wrapper">
                 ${images
                   .map(
