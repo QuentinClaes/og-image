@@ -35,7 +35,7 @@ export function parseRequest(req: IncomingMessage) {
     images: getArray(images),
     widths: getArray(widths),
     heights: getArray(heights),
-    rating: rating === '1' ? '1' : '2'
+    rating: getArray(rating)
   };
   parsedRequest.images = getDefaultImages(
     parsedRequest.images,

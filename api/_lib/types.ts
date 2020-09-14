@@ -1,6 +1,5 @@
 export type FileType = 'png' | 'jpeg';
 export type Theme = 'light' | 'dark';
-export type Rating = '1' | '2' | '3' | '4' | '5';
 
 export interface ParsedRequest {
     fileType: FileType;
@@ -11,5 +10,5 @@ export interface ParsedRequest {
     images: string[];
     widths: string[];
     heights: string[];
-    rating: Rating;
+    rating: string[];
 }
