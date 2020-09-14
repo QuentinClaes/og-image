@@ -110,7 +110,7 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest) {
-  const { text, theme, md, fontSize, images, widths, heights } = parsedReq;
+  const { text, theme, md, fontSize, images, widths, heights, rating } = parsedReq;
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -122,7 +122,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <body>
         <div>
             <div class="spacer">
-            <h2>www.cuustomer.com test</h2>
+            <h2>www.cuustomer.com test ${rating}</h2>
             <div class="logo-wrapper">
                 ${images
                   .map(
