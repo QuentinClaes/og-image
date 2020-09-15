@@ -122,7 +122,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     <body>
         <div>
             <div class="spacer">
-            <h2>www.cuustomer.com rating ${rating}</h2>
+            <h2>www.cuustomer.com  ${rating}</h2>
             <div class="logo-wrapper">
                 ${images
                   .map(
