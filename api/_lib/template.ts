@@ -143,7 +143,7 @@ export function getHtml() {
     .then((res) => {
       return res;
     })
-    .catch((e) => console.log("error", e));
+    .catch((e) => console.log("error  ", e));
 }
 //   return `<!DOCTYPE html>
 // <html>
