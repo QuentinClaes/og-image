@@ -2,7 +2,7 @@ import { readFileSync } from "fs";
 import marked from "marked";
 import { sanitizeHtml } from "./sanitizer";
 import { ParsedRequest } from "./types";
-import axios from "axios";
+
 const twemoji = require("twemoji");
 const twOptions = { folder: "svg", ext: ".svg" };
 const emojify = (text: string) => twemoji.parse(text, twOptions);
@@ -99,7 +99,7 @@ function getCss(theme: string, fontSize: string) {
     }`;
 }
 
-export async function getHtml(parsedReq: ParsedRequest) {
+export function getHtml(parsedReq: ParsedRequest) {
   const {
     text,
     theme,
@@ -110,8 +110,7 @@ export async function getHtml(parsedReq: ParsedRequest) {
     heights,
     rating,
   } = parsedReq;
-  const test = await getData();
-  console.log("mes test", test);
+
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -140,26 +139,6 @@ export async function getHtml(parsedReq: ParsedRequest) {
         </div>
     </body>
 </html>`;
-}
-function getData() {
-  axios({
-    url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
-    method: "post",
-    headers: {
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJjdXVzdG9tZXItbmV3LWFwaUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTk5NjkzOTc5LCJleHAiOjE2MDAyOTg3Nzl9.sFDXbxUJ6DSndPpyeVpKYaGLuZuWENbsqLZihrVpl_A`,
-    },
-    data: {
-      query: `query {
-        reviews(where:{provider:{name:"Proximus"}, id: 94}){
-          id 
-          title
-          content
-        }
-      }`,
-    },
-  }).then((result) => {
-    return result.data;
-  });
 }
 function getImage(src: string, width = "auto", height = "225") {
   return `<img
