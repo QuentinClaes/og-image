@@ -100,7 +100,7 @@ function getCss(theme: string, fontSize: string) {
     }`;
 }
 
-export function getHtml(parsedReq: ParsedRequest, test2: object) {
+export function getHtml(parsedReq: ParsedRequest, test: object) {
   const {
     text,
     theme,
@@ -112,7 +112,7 @@ export function getHtml(parsedReq: ParsedRequest, test2: object) {
     rating,
     id,
   } = parsedReq;
-  console.log("test2 dans le brol", test2);
+  console.log("test2 dans le brol", test);
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -124,16 +124,9 @@ export function getHtml(parsedReq: ParsedRequest, test2: object) {
     <body>
         <div>
             <div class="spacer">
-            <h2>www.cuustomer.com  ${rating} </h2>
-            <h3>${id} de la review</h3>
-            <div class="logo-wrapper">
-                ${images
-                  .map(
-                    (img, i) =>
-                      getPlusSign(i) + getImage(img, widths[i], heights[i])
-                  )
-                  .join("")}
-            </div>
+            <h2>www.cuustomer.com   </h2>
+            <h3>rating ${rating} de la review</h3>
+            <h3>id ${id} de la review</h3>
             <div class="spacer">
             <div class="heading">${emojify(
               md ? marked(text) : sanitizeHtml(text)

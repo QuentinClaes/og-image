@@ -26,7 +26,7 @@ function getData(parsedReq: ParsedRequest) {
         }`,
     },
   }).then((result) => {
-    return result.data;
+    return result.data.reviews;
   });
   return test;
 }
@@ -37,9 +37,8 @@ export default async function handler(
   const parsedReq = parseRequest(req);
   const test = await getData(parsedReq);
   console.log("mon test  ", test);
-  const test2 = test.data.reviews;
   try {
-    const html = getHtml(parsedReq, test2);
+    const html = getHtml(parsedReq, test);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);
