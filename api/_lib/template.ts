@@ -1,11 +1,6 @@
 import { readFileSync } from "fs";
-import marked from "marked";
 import { sanitizeHtml } from "./sanitizer";
 import { ParsedRequest } from "./types";
-
-const twemoji = require("twemoji");
-const twOptions = { folder: "svg", ext: ".svg" };
-const emojify = (text: string) => twemoji.parse(text, twOptions);
 
 const rglr = readFileSync(
   `${__dirname}/../_fonts/Inter-Regular.woff2`
@@ -101,7 +96,7 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest, test: object) {
-  const { text, theme, md, fontSize, rating, id } = parsedReq;
+  const { theme, fontSize, rating, id } = parsedReq;
   console.log("test2 dans le brol", test);
   return `<!DOCTYPE html>
 <html>
@@ -117,25 +112,7 @@ export function getHtml(parsedReq: ParsedRequest, test: object) {
             <h2>www.cuustomer.com   </h2>
             <h3>rating ${rating} de la review</h3>
             <h3>id ${id} de la review</h3>
-            <div class="spacer">
-            <div class="heading">${emojify(
-              md ? marked(text) : sanitizeHtml(text)
-            )}
-            </div>
         </div>
     </body>
 </html>`;
-}
-function getImage(src: string, width = "auto", height = "225") {
-  return `<img
-        class="logo"
-        alt="Generated Image"
-        src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
-    />`;
-}
-
-function getPlusSign(i: number) {
-  return i === 0 ? "" : '<div class="plus">+</div>';
 }
