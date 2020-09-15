@@ -5,6 +5,7 @@ import { getHtml } from "./_lib/template";
 import axios from "axios";
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
+
 function getData() {
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
@@ -31,10 +32,11 @@ export default async function handler(
   res: ServerResponse
 ) {
   const test = await getData();
-  console.log("mon test", test);
+  console.log("mon test", test.data.reviews);
+  const test2 = test.data.reviews;
   try {
     const parsedReq = parseRequest(req);
-    const html = getHtml(parsedReq);
+    const html = getHtml(parsedReq, test2);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);

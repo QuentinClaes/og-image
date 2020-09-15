@@ -99,7 +99,7 @@ function getCss(theme: string, fontSize: string) {
     }`;
 }
 
-export function getHtml(parsedReq: ParsedRequest) {
+export function getHtml(parsedReq: ParsedRequest, test2: object) {
   const {
     text,
     theme,
@@ -110,7 +110,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     heights,
     rating,
   } = parsedReq;
-
+  console.log("test2 dans le brol", test2);
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
