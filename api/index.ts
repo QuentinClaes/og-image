@@ -17,7 +17,7 @@ function getData(parsedReq: ParsedRequest) {
     },
     data: {
       query: `query {
-          reviews(where:{provider:{name: ${text}}, id: 94}){
+          reviews(where:{provider:{name: "${text}"}, id: 94}){
             id 
             title
             content
