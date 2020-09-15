@@ -7,7 +7,7 @@ import axios from "axios";
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
-function getData(parsedReq: ParsedRequest) {
+function getData(parsedReq: ParsedRequest, id: number) {
   const { text } = parsedReq;
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
@@ -17,10 +17,11 @@ function getData(parsedReq: ParsedRequest) {
     },
     data: {
       query: `query {
-          reviews(where:{provider:{name: "${text}"}, id: 94}){
+          reviews(where:{provider:{name: "${text}"}, id: ${id}}){
             id 
             title
             content
+            rating
           }
         }`,
     },
@@ -34,7 +35,7 @@ export default async function handler(
   res: ServerResponse
 ) {
   const parsedReq = parseRequest(req);
-  const test = await getData(parsedReq);
+  const test = await getData(parsedReq, req.query.id);
   console.log("mon test  ", test);
   const test2 = test.data.reviews;
   try {
