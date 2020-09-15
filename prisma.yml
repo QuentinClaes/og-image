@@ -1,0 +1,6 @@
+endpoint: https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev
+datamodel: datamodel.prisma
+
+generate:
+  - generator: javascript-client
+    output: ./generated/prisma-client/

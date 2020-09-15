@@ -1,0 +1,195 @@
+type Category @db(name: "category") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "category_id_seq", initialValue: 1, allocationSize: 1)
+  contract: [Contract]
+  createdAt: DateTime @createdAt
+  description: String
+  name: String!
+  nameFr: String @db(name: "name_fr")
+  nameNl: String @db(name: "name_nl")
+  photo: String
+  provider: [Provider]
+  subcategory: SubCategory @db(name: "subcategory_id")
+  updatedAt: DateTime @updatedAt
+}
+
+type Contract @db(name: "contract") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "contract_id_seq", initialValue: 1, allocationSize: 1)
+  accountManagerEmail: String
+  accountManagerGSM: String
+  accountManagerName: String
+  accountManagerPhone: String
+  category: Category
+  clientNumber: String
+  contractAutoReconduct: Boolean
+  contractBudget: Float
+  contractEndingAlert: Boolean
+  contractEndingAlertTime: Int
+  contractID: String! @unique
+  contractNumber: String
+  contractPreavis: Int
+  contractStart: DateTime
+  contractTime: Int
+  contractType: String
+  customer: Customer
+  provider: Provider
+  selectionID: String
+}
+
+type Customer @db(name: "customer") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "customer_id_seq", initialValue: 1, allocationSize: 1)
+  companyAddress: String
+  companyCity: String
+  companyCountry: String
+  companyEmployee: Int
+  companyName: String
+  companyPhone: String
+  companySize: String
+  companyTva: String
+  companyWebsite: String
+  companyZip: String
+  contract: [Contract]
+  countryCode: String
+  createdAt: DateTime @createdAt
+  email: String!
+  emailPro: String
+  familyName: String!
+  favProvs: String
+  givenName: String!
+  gsm: String
+  headline: String
+  lang: String
+  lastlogin: DateTime
+  name: String!
+  numberlogin: Int!
+  phone: String
+  picture: String!
+  review: [Review]
+  title: String
+  tuto: Boolean
+  updatedAt: DateTime @updatedAt
+  userId: String! @unique
+}
+
+type Newsletter @db(name: "newsletter") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "newsletter_id_seq", initialValue: 1, allocationSize: 1)
+  createdAt: DateTime @createdAt
+  email: String! @unique
+}
+
+type PriceCategory @db(name: "price_category") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "price_category_id_seq", initialValue: 1, allocationSize: 1)
+  name: String!
+  provider: [Provider]
+}
+
+type Provider @db(name: "provider") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "provider_id_seq", initialValue: 1, allocationSize: 1)
+  address: String
+  category: [Category]
+  city: String
+  contact: String
+  contactEmail: String
+  contacten: String
+  contactfr: String
+  contactnl: String
+  contract: [Contract]
+  countryId: Int
+  createdAt: DateTime @createdAt
+  email: String
+  emailen: String
+  emailfr: String
+  emailnl: String
+  faq: String
+  faqen: String
+  faqfr: String
+  faqnl: String
+  login: String
+  loginen: String
+  loginfr: String
+  loginnl: String
+  logo: String
+  name: String! @unique
+  phone: String
+  phoneen: String
+  phonefr: String
+  phonenl: String
+  priceCategory: PriceCategory
+  pricingAVG: Float
+  ratingAVG: Float
+  review: [Review]
+  shops: String
+  site: String
+  siteen: String
+  sitefr: String
+  sitenl: String
+  socialMedia: [SocialMedia]
+  street: String
+  test: String
+  testJson: String
+  tva: String
+  updatedAt: DateTime @updatedAt
+  user: [User]
+  verified: Boolean
+  widgetId: String
+  zip: String
+}
+
+type Review @db(name: "review") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "review_id_seq", initialValue: 1, allocationSize: 1)
+  author: Customer
+  content: String!
+  contentEn: String @db(name: "content_en")
+  contentFr: String @db(name: "content_fr")
+  contentNl: String @db(name: "content_nl")
+  createdAt: DateTime @createdAt
+  originalLang: String @db(name: "original_lang")
+  pricing: Int
+  provider: Provider @db(name: "provider_id")
+  rating: Int!
+  reply: String
+  replyCreatedAt: DateTime
+  replyEn: String @db(name: "reply_en")
+  replyFr: String @db(name: "reply_fr")
+  replyNl: String @db(name: "reply_nl")
+  replyOriginal: String @db(name: "reply_original")
+  title: String!
+  titleEn: String @db(name: "title_en")
+  titleFr: String @db(name: "title_fr")
+  titleNl: String @db(name: "title_nl")
+  updatedAt: DateTime @updatedAt
+  upvote: Int
+  userId: String
+}
+
+type SocialMedia @db(name: "social_media") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "social_media_id_seq", initialValue: 1, allocationSize: 1)
+  createdAt: DateTime @createdAt
+  facebook: String
+  linkedin: String
+  provider: Provider
+  twitter: String
+  updatedAt: DateTime @updatedAt
+}
+
+type SubCategory @db(name: "sub_category") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "sub_category_id_seq", initialValue: 1, allocationSize: 1)
+  category: [Category]
+  name: String!
+  photo: String
+}
+
+type User @db(name: "user") {
+  id: Int! @id(strategy: SEQUENCE) @sequence(name: "user_id_seq", initialValue: 1, allocationSize: 1)
+  allowedToConnect: Boolean @db(name: "allowed_to_connect")
+  changedPwd: String @db(name: "changed_pwd")
+  createdAt: DateTime @createdAt
+  email: String!
+  givenName: String!
+  lang: String
+  lastlogin: DateTime
+  name: String!
+  numberlogin: Int!
+  provider: [Provider]
+  tempPwd: String @db(name: "temp_pwd")
+  updatedAt: DateTime @updatedAt
+}
