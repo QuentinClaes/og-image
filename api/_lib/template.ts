@@ -110,71 +110,81 @@ function getCss(theme: string, fontSize: string) {
     }`;
 }
 
-export function getHtml(parsedReq: ParsedRequest) {
-  const {
-    text,
-    theme,
-    md,
-    fontSize,
-    images,
-    widths,
-    heights,
-    rating,
-  } = parsedReq;
+// export function getHtml(parsedReq: ParsedRequest) {
+// const {
+//   text,
+//   theme,
+//   md,
+//   fontSize,
+//   images,
+//   widths,
+//   heights,
+//   rating,
+// } = parsedReq;
+export function getHtml() {
   const accessToken =
     "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJjdXVzdG9tZXItbmV3LWFwaUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTk5NjkzOTc5LCJleHAiOjE2MDAyOTg3Nzl9.sFDXbxUJ6DSndPpyeVpKYaGLuZuWENbsqLZihrVpl_A";
-  const query = `query {reviews(where:{provider:{name:"Proximus"}, id: 94}){id title content}}`;
-  axios({
+  return axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
-    headers: { Authorization: "Bearer " + accessToken },
-    data: {
-      query: query,
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
     },
-  }).then((result) => {
-    console.log("mon result", result.data.reviews);
-    return result.data.json();
-  });
-  return `<!DOCTYPE html>
-<html>
-    <meta charset="utf-8">
-    <title>Generated Image</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        ${getCss(theme, fontSize)}
-    </style>
-    <body>
-        <div>
-            <div class="spacer">
-            <h2>www.cuustomer.com  ${rating}</h2>
-            <div class="logo-wrapper">
-                ${images
-                  .map(
-                    (img, i) =>
-                      getPlusSign(i) + getImage(img, widths[i], heights[i])
-                  )
-                  .join("")}
-            </div>
-            <div class="spacer">
-            <div class="heading">${emojify(
-              md ? marked(text) : sanitizeHtml(text)
-            )}
-            </div>
-        </div>
-    </body>
-</html>`;
+    data: {
+      query: `
+      query {
+        reviews (where:{provider:{name:"Proximus"}, id: 94}){
+          id title content
+        }
+      }
+      `,
+    },
+  })
+    .then((res) => {
+      return res;
+    })
+    .catch((e) => console.log("error", e));
 }
+//   return `<!DOCTYPE html>
+// <html>
+//     <meta charset="utf-8">
+//     <title>Generated Image</title>
+//     <meta name="viewport" content="width=device-width, initial-scale=1">
+//     <style>
+//         ${getCss(theme, fontSize)}
+//     </style>
+//     <body>
+//         <div>
+//             <div class="spacer">
+//             <h2>www.cuustomer.com  ${rating}</h2>
+//             <div class="logo-wrapper">
+//                 ${images
+//                   .map(
+//                     (img, i) =>
+//                       getPlusSign(i) + getImage(img, widths[i], heights[i])
+//                   )
+//                   .join("")}
+//             </div>
+//             <div class="spacer">
+//             <div class="heading">${emojify(
+//               md ? marked(text) : sanitizeHtml(text)
+//             )}
+//             </div>
+//         </div>
+//     </body>
+// </html>`;
+// }
 
-function getImage(src: string, width = "auto", height = "225") {
-  return `<img
-        class="logo"
-        alt="Generated Image"
-        src="${sanitizeHtml(src)}"
-        width="${sanitizeHtml(width)}"
-        height="${sanitizeHtml(height)}"
-    />`;
-}
+// function getImage(src: string, width = "auto", height = "225") {
+//   return `<img
+//         class="logo"
+//         alt="Generated Image"
+//         src="${sanitizeHtml(src)}"
+//         width="${sanitizeHtml(width)}"
+//         height="${sanitizeHtml(height)}"
+//     />`;
+// }
 
-function getPlusSign(i: number) {
-  return i === 0 ? "" : '<div class="plus">+</div>';
-}
+// function getPlusSign(i: number) {
+//   return i === 0 ? "" : '<div class="plus">+</div>';
+// }
