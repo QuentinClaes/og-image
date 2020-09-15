@@ -110,7 +110,8 @@ export function getHtml(parsedReq: ParsedRequest) {
     heights,
     rating,
   } = parsedReq;
-  getData();
+  const test = getData();
+  console.log("mes test", test);
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -157,7 +158,7 @@ function getData() {
       }`,
     },
   }).then((result) => {
-    console.log(result.data);
+    return result.data.reviews;
   });
 }
 function getImage(src: string, width = "auto", height = "225") {
