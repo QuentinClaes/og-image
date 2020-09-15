@@ -1,4 +1,5 @@
 import { IncomingMessage, ServerResponse } from "http";
+import { ParsedRequest } from "./_lib/types";
 import { parseRequest } from "./_lib/parser";
 import { getScreenshot } from "./_lib/chromium";
 import { getHtml } from "./_lib/template";
@@ -6,7 +7,8 @@ import axios from "axios";
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
-function getData() {
+function getData(parsedReq: ParsedRequest) {
+  const { text } = parsedReq;
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
@@ -15,7 +17,7 @@ function getData() {
     },
     data: {
       query: `query {
-          reviews(where:{provider:{name:"Proximus"}, id: 94}){
+          reviews(where:{provider:{name: ${text}}, id: 94}){
             id 
             title
             content
@@ -31,11 +33,11 @@ export default async function handler(
   req: IncomingMessage,
   res: ServerResponse
 ) {
-  const test = await getData();
-  console.log("mon test", test.data.reviews);
+  const parsedReq = parseRequest(req);
+  const test = await getData(parsedReq);
+  console.log("mon test", req);
   const test2 = test.data.reviews;
   try {
-    const parsedReq = parseRequest(req);
     const html = getHtml(parsedReq, test2);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
