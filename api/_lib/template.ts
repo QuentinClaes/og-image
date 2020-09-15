@@ -127,7 +127,6 @@ export function getHtml(parsedReq: ParsedRequest) {
 
   const instance = axios.create({
     baseURL: `https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev?query=${query}`,
-    timeout: 1000,
     headers: { Authorization: "Bearer " + accessToken },
   });
 
