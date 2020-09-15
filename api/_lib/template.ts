@@ -111,7 +111,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     rating,
   } = parsedReq;
 
-  const result = axios({
+  axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
     headers: {
