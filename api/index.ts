@@ -7,8 +7,8 @@ import axios from "axios";
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
-function getData(parsedReq: ParsedRequest, id: number) {
-  const { text } = parsedReq;
+function getData(parsedReq: ParsedRequest) {
+  const { text, id } = parsedReq;
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
@@ -35,7 +35,7 @@ export default async function handler(
   res: ServerResponse
 ) {
   const parsedReq = parseRequest(req);
-  const test = await getData(parsedReq, req.query.id);
+  const test = await getData(parsedReq);
   console.log("mon test  ", test);
   const test2 = test.data.reviews;
   try {
