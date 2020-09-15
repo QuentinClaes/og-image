@@ -109,6 +109,7 @@ export function getHtml(parsedReq: ParsedRequest, test2: object) {
     widths,
     heights,
     rating,
+    id,
   } = parsedReq;
   console.log("test2 dans le brol", test2);
   return `<!DOCTYPE html>
@@ -122,7 +123,8 @@ export function getHtml(parsedReq: ParsedRequest, test2: object) {
     <body>
         <div>
             <div class="spacer">
-            <h2>www.cuustomer.com  ${rating}</h2>
+            <h2>www.cuustomer.com  ${rating} </h2>
+            <h3>${id} de la review</h3>
             <div class="logo-wrapper">
                 ${images
                   .map(
