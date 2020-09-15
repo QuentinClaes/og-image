@@ -133,6 +133,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     },
   }).then((result) => {
     console.log("mon result", result.data.reviews);
+    return result.data.json();
   });
   return `<!DOCTYPE html>
 <html>
