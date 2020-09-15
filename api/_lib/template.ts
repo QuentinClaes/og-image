@@ -141,8 +141,8 @@ export function getHtml(parsedReq: ParsedRequest) {
     </body>
 </html>`;
 }
-function getData() {
-  axios({
+async function getData() {
+  await axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
     headers: {
@@ -158,7 +158,7 @@ function getData() {
       }`,
     },
   }).then((result) => {
-    return result.data.reviews;
+    return result.data;
   });
 }
 function getImage(src: string, width = "auto", height = "225") {
