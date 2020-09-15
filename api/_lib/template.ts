@@ -99,7 +99,7 @@ function getCss(theme: string, fontSize: string) {
     }`;
 }
 
-export function getHtml(parsedReq: ParsedRequest) {
+export async function getHtml(parsedReq: ParsedRequest) {
   const {
     text,
     theme,
@@ -110,7 +110,7 @@ export function getHtml(parsedReq: ParsedRequest) {
     heights,
     rating,
   } = parsedReq;
-  const test = getData();
+  const test = await getData();
   console.log("mes test", test);
   return `<!DOCTYPE html>
 <html>
@@ -141,8 +141,8 @@ export function getHtml(parsedReq: ParsedRequest) {
     </body>
 </html>`;
 }
-async function getData() {
-  await axios({
+function getData() {
+  axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
     headers: {
