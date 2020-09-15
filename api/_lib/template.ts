@@ -110,29 +110,21 @@ export function getHtml(parsedReq: ParsedRequest) {
     heights,
     rating,
   } = parsedReq;
-  const accessToken =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJjdXVzdG9tZXItbmV3LWFwaUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTk5NjkzOTc5LCJleHAiOjE2MDAyOTg3Nzl9.sFDXbxUJ6DSndPpyeVpKYaGLuZuWENbsqLZihrVpl_A";
-  const query = `query {
-    reviews(where:{provider:{name:"Proximus"}, id: 94}){
-      id 
-      title
-      content
-    }
-  }`;
-
-  // const instance = axios.create({
-  //   baseURL: `https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev?query=${query}`,
-  //   headers: { Authorization: "Bearer " + accessToken },
-  // });
 
   const result = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJjdXVzdG9tZXItbmV3LWFwaUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTk5NjkzOTc5LCJleHAiOjE2MDAyOTg3Nzl9.sFDXbxUJ6DSndPpyeVpKYaGLuZuWENbsqLZihrVpl_A`,
     },
     data: {
-      query: query,
+      query: `query {
+        reviews(where:{provider:{name:"Proximus"}, id: 94}){
+          id 
+          title
+          content
+        }
+      }`,
     },
   }).then((result) => {
     console.log(result.data);
