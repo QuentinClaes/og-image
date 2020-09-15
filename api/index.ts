@@ -6,7 +6,7 @@ import axios from "axios";
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 function getData() {
-  axios({
+  const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
     headers: {
@@ -24,6 +24,7 @@ function getData() {
   }).then((result) => {
     return result.data;
   });
+  return test;
 }
 export default async function handler(
   req: IncomingMessage,
