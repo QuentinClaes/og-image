@@ -101,17 +101,7 @@ function getCss(theme: string, fontSize: string) {
 }
 
 export function getHtml(parsedReq: ParsedRequest, test: object) {
-  const {
-    text,
-    theme,
-    md,
-    fontSize,
-    images,
-    widths,
-    heights,
-    rating,
-    id,
-  } = parsedReq;
+  const { text, theme, md, fontSize, rating, id } = parsedReq;
   console.log("test2 dans le brol", test);
   return `<!DOCTYPE html>
 <html>

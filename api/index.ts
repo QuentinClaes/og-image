@@ -26,7 +26,7 @@ function getData(parsedReq: ParsedRequest) {
         }`,
     },
   }).then((result) => {
-    return result.data.reviews;
+    return result.data.reviews[0];
   });
   return test;
 }
