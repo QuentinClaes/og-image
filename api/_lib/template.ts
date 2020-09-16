@@ -204,7 +204,7 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string) {
+export function getHtml(Data: string, Content: string) {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
   console.log("test dans template.tsx", Data);
@@ -251,11 +251,7 @@ export function getHtml(Data: string) {
       </div>
       <div class="review-content">
         <span>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue
-          ante eu rutrum rutrum. Aenean non quam faucibus ligula suscipit
-          maximus eget at purus. Vestibulum vel imperdiet felis,c convallis
-          massa. Proin lectus orci, consequat quis malesuada id, pharetra in
-          magna ...
+          ${Content}
         </span>
       </div>
 
