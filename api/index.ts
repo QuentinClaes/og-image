@@ -54,7 +54,7 @@ export default async function handler(
       "Cache-Control",
       `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
     );
-    res.end(test.json())
+    res.end(test)
     // res.end(file);
   } catch (e) {
     res.statusCode = 500;
