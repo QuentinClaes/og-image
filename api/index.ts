@@ -1,9 +1,9 @@
-import { IncomingMessage, ServerResponse } from "http";
-import { ParsedRequest } from "./_lib/types";
-import { parseRequest } from "./_lib/parser";
-import { getScreenshot } from "./_lib/chromium";
-import { getHtml } from "./_lib/template";
 import axios from "axios";
+import { IncomingMessage, ServerResponse } from "http";
+import { getScreenshot } from "./_lib/chromium";
+import { parseRequest } from "./_lib/parser";
+import { getHtml } from "./_lib/template";
+import { ParsedRequest } from "./_lib/types";
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
@@ -18,14 +18,14 @@ function getData(parsedReq: ParsedRequest) {
     data: {
       query: `query {
           reviews(where:{provider:{name: "${text}"}, id: ${id}}){
-            id 
+            id
             title
             content
             rating
           }
         }`,
     },
-  }).then((result) => {
+  }).then((result: any) => {
     return result.data.reviews;
   });
   return test;
@@ -36,7 +36,7 @@ export default async function handler(
 ) {
   const parsedReq = parseRequest(req);
   const test = await getData(parsedReq);
-  console.log("mon test  ", test);
+  console.log("mon test ", test);
   try {
     const html = getHtml(parsedReq, test);
     if (isHtmlDebug) {
