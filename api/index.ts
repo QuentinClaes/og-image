@@ -28,6 +28,7 @@ function getData(parsedReq: ParsedRequest) {
   }).then((result: any) => {
     return result.data.reviews;
   });
+  console.log('mon test dnas ma function', test)
   return test;
 }
 export default async function handler(
