@@ -237,7 +237,7 @@ export function getHtml() {
       <div class="review-header">
         <div>
           <div class="review-header-picture">
-            <img src="/ProfilePicture.png" />
+            <img src="https://i.ibb.co/x7F6Tgb/Profile-Picture.png" />
           </div>
           <div class="review-header-user">
             <div>
@@ -254,7 +254,7 @@ export function getHtml() {
         </div>
         <div class="provider-rating">
           <div class="logo-area">
-            <img src="/octa-shrink.jpeg" />
+            <img src="https://i.ibb.co/HYN7K7Q/octa-shrink.jpg" />
           </div>
           <div class="review-header-rating">
             <div class="stars">
