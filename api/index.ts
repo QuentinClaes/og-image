@@ -27,7 +27,7 @@ function getData(parsedReq: ParsedRequest) {
         }`,
     },
   }).then((result: any) => {
-    return result.data.reviews;
+    return result;
   });
   console.log('mon test dnas ma function', test)
   return test;
