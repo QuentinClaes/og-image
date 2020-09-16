@@ -39,7 +39,7 @@ export default async function handler(
     const parsedReq = parseRequest(req);
     const test = await getData(parsedReq);
     console.log("mon test ", test);
-    const Data = test.reviews[0].id
+    const Data = test.reviews[0]
     console.log("mon test ", Data);
     // const html = getHtml(parsedReq, test);
     const html = getHtml(Data);
