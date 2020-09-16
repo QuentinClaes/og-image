@@ -1,6 +1,6 @@
 // import { readFileSync } from "fs";
 // import { sanitizeHtml } from "./sanitizer";
-import { ParsedRequest } from "./types";
+// import { ParsedRequest } from "./types";
 
 // const rglr = readFileSync(
 //   `${__dirname}/../_fonts/Inter-Regular.woff2`
@@ -219,9 +219,10 @@ function getCss() {
 `;
 }
 
-export function getHtml(parsedReq: ParsedRequest, test: object) {
+// export function getHtml(parsedReq: ParsedRequest, test: object) {
+export function getHtml() {
   // const { theme, fontSize, rating, id } = parsedReq;
-  console.log("test2 dans le brol", test);
+  // console.log("test2 dans le brol", test);
   console.log("test2 dans le brol");
   return `<!DOCTYPE html>
 <html>

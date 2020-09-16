@@ -28,7 +28,7 @@ function getData(parsedReq: ParsedRequest) {
         }`,
     },
   }).then((result) => {
-    return result.data
+    return result.data;
   });
   return test;
 }
@@ -37,10 +37,11 @@ export default async function handler(
   res: ServerResponse
 ) {
   try {
-    const parsedReq = parseRequest(req)
+    const parsedReq = parseRequest(req);
     const test = await getData(parsedReq);
-    console.log("mon test", test);
-    const html = getHtml(parsedReq, test);
+    console.log("mon test ", test);
+    // const html = getHtml(parsedReq, test);
+    const html = getHtml();
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);
