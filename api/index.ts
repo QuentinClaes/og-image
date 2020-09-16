@@ -41,7 +41,7 @@ export default async function handler(
     console.log("1", test);
     const Data2 = JSON.stringify(test)
     console.log("2", Data2)
-    const Title = test.data.reviews[0].id
+    const Title = test.data.reviews[0].title
     const Content = test.data.reviews[0].content
     const html = getHtml(Title, Content);
     if (isHtmlDebug) {
