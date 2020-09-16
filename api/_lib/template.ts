@@ -247,7 +247,7 @@ export function getHtml(Data: string) {
         </div>
       </div>
       <div class="review-title">
-        <span>title</span>
+        <span>${Data}</span>
       </div>
       <div class="review-content">
         <span>
