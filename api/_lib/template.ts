@@ -204,7 +204,7 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string, Content: string, CompanyTitle: string, CompanyName: string, Name: string) {
+export function getHtml(Data: string, Content: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string) {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
   console.log("test dans template.tsx", Data);
@@ -242,7 +242,7 @@ export function getHtml(Data: string, Content: string, CompanyTitle: string, Com
             <img src="https://i.ibb.co/HYN7K7Q/octa-shrink.jpg" />
           </div>
           <div class="review-header-rating">
-            <img src="https://i.ibb.co/5hGbmTS/stars4.png" />
+            <img src="${ImageRating}" />
           </div>
         </div>
       </div>
