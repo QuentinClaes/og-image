@@ -238,7 +238,7 @@ export function getHtml() {
       <div class="review-header">
         <div>
           <div class="review-header-picture">
-            <img src="/Profile Picture.png" />
+            <img src="/ProfilePicture.png" />
           </div>
           <div class="review-header-user">
             <div>
