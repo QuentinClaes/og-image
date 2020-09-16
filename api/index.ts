@@ -46,9 +46,10 @@ export default async function handler(
     const test = await getData(parsedReq);
     const Title = test.data.reviews[0].title
     const Content = test.data.reviews[0].content
+    const Name = test.data.reviews[0].name
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
-    const html = getHtml(Title, Content, CompanyTitle, CompanyName);
+    const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);
