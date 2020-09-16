@@ -219,9 +219,10 @@ function getCss() {
 `;
 }
 
-export function getHtml(parsedReq: ParsedRequest, test: object) {
+// export function getHtml(parsedReq: ParsedRequest, test: object) {
+export function getHtml() {
   // const { theme, fontSize, rating, id } = parsedReq;
-  console.log("test2 dans le brol", test);
+  // console.log("test2 dans le brol", test);
   console.log("test2 dans le brol");
   return `<!DOCTYPE html>
 <html>
