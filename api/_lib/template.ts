@@ -92,7 +92,8 @@ function getCss() {
       display: flex;
     }
     .review-header-rating img {
-      margin: 2px;
+      width: 270px;
+      height: 100%;
     }
     .review-header-picture {
       margin-right: 40px;
@@ -171,22 +172,6 @@ function getCss() {
       max-height: 100%;
       margin: auto;
     }
-
-    .stars {
-      height: 64px;
-      background-color: #ff6169;
-      border-radius: 10px;
-      text-align: center;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-
-    .stars img {
-      height: auto;
-      width: 36px;
-      margin: auto 6px;
-    }
-
     .review-title {
       font-weight: bold;
       display: flex;
@@ -257,13 +242,7 @@ export function getHtml(Data: any) {
             <img src="https://i.ibb.co/HYN7K7Q/octa-shrink.jpg" />
           </div>
           <div class="review-header-rating">
-            <div class="stars">
-              <img src="https://i.ibb.co/xFcZf7D/cuu-star-full.png" />
-              <img src="https://i.ibb.co/xFcZf7D/cuu-star-full.png" />
-              <img src="https://i.ibb.co/xFcZf7D/cuu-star-full.png" />
-              <img src="https://i.ibb.co/w43Xhs2/cuu-star-half.png" />
-              <img src="https://i.ibb.co/ZcYPdwX/cuu-star-empty.png" />
-            </div>
+            <img src="https://i.ibb.co/5hGbmTS/stars4.png" />
           </div>
         </div>
       </div>
