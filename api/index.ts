@@ -23,6 +23,9 @@ function getData(parsedReq: ParsedRequest) {
             title
             content
             rating
+            provider {
+              logo
+            }
             author {
               name
               companyName
