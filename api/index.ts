@@ -37,7 +37,7 @@ export default async function handler(
   res: ServerResponse
 ) {
   try {
-    const parsedReq = parseRequest(req);
+    const parsedReq = parseRequest(req)
     const test = await getData(parsedReq);
     console.log("mon test ", test);
     console.log("mon test dans inde.ts");
