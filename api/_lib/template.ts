@@ -204,10 +204,10 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml() {
+export function getHtml(Data: string) {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
-  console.log("test dans template.tsx");
+  console.log("test dans template.tsx", Data);
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
