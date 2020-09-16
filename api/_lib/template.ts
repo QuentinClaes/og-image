@@ -1,16 +1,16 @@
-import { readFileSync } from "fs";
-import { sanitizeHtml } from "./sanitizer";
+// import { readFileSync } from "fs";
+// import { sanitizeHtml } from "./sanitizer";
 import { ParsedRequest } from "./types";
 
-const rglr = readFileSync(
-  `${__dirname}/../_fonts/Inter-Regular.woff2`
-).toString("base64");
-const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString(
-  "base64"
-);
-const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
-  "base64"
-);
+// const rglr = readFileSync(
+//   `${__dirname}/../_fonts/Inter-Regular.woff2`
+// ).toString("base64");
+// const bold = readFileSync(`${__dirname}/../_fonts/Inter-Bold.woff2`).toString(
+//   "base64"
+// );
+// const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
+//   "base64"
+// );
 
 function getCss() {
   // let background = "white";
@@ -220,7 +220,7 @@ function getCss() {
 }
 
 export function getHtml(parsedReq: ParsedRequest, test: object) {
-  const { theme, fontSize, rating, id } = parsedReq;
+  // const { theme, fontSize, rating, id } = parsedReq;
   console.log("test2 dans le brol", test);
   console.log("test2 dans le brol");
   return `<!DOCTYPE html>
