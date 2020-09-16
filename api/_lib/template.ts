@@ -204,7 +204,7 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string, Content: string) {
+export function getHtml(Data: string, Content: string, CompanyTitle: string, CompanyName: string) {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
   console.log("test dans template.tsx", Data);
@@ -233,8 +233,8 @@ export function getHtml(Data: string, Content: string) {
                 </div>
               </span>
             </div>
-            <span class="review-header-user-position"> AuthorTitle </span>
-            <span class="review-header-user-company"> AuthorCompanyName </span>
+            <span class="review-header-user-position"> ${CompanyTitle} </span>
+            <span class="review-header-user-company"> ${CompanyName} </span>
           </div>
         </div>
         <div class="provider-rating">

@@ -23,6 +23,12 @@ function getData(parsedReq: ParsedRequest) {
             title
             content
             rating
+            author {
+              name
+              companyName
+              title
+              companySize
+            }
           }
         }`,
     },
@@ -38,12 +44,11 @@ export default async function handler(
   try {
     const parsedReq = parseRequest(req);
     const test = await getData(parsedReq);
-    console.log("1", test);
-    const Data2 = JSON.stringify(test)
-    console.log("2", Data2)
     const Title = test.data.reviews[0].title
     const Content = test.data.reviews[0].content
-    const html = getHtml(Title, Content);
+    const CompanyTitle = test.data.reviews[0].author.title
+    const CompanyName = test.data.reviews[0].author.companyName
+    const html = getHtml(Title, Content, CompanyTitle, CompanyName);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);
