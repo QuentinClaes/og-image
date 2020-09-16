@@ -46,7 +46,7 @@ export default async function handler(
     const test = await getData(parsedReq);
     const Title = test.data.reviews[0].title
     const Content = test.data.reviews[0].content
-    const Name = test.data.reviews[0].name
+    const Name = test.data.reviews[0].author.name
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name);
