@@ -26,8 +26,8 @@ function getData(parsedReq: ParsedRequest) {
           }
         }`,
     },
-  }).then((result: any) => {
-    return result;
+  }).then((result) => {
+    return result.data
   });
   return test;
 }
