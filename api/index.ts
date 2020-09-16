@@ -38,9 +38,11 @@ export default async function handler(
   try {
     const parsedReq = parseRequest(req);
     const test = await getData(parsedReq);
-    console.log("mon test ", test);
+    console.log("1", test);
+    const Data2 = JSON.stringify(test)
+    console.log("2", Data2)
     const Data = test.reviews[0]
-    console.log("mon test ", Data);
+    console.log("3", Data);
     // const html = getHtml(parsedReq, test);
     const html = getHtml(Data);
     if (isHtmlDebug) {
