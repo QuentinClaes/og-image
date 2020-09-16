@@ -5,6 +5,7 @@ import { parseRequest } from "./_lib/parser";
 import { getHtml } from "./_lib/template";
 import { ParsedRequest } from "./_lib/types";
 
+
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 
@@ -38,7 +39,7 @@ export default async function handler(
   try {
     const parsedReq = parseRequest(req)
     const test = await getData(parsedReq);
-    console.log("mon test ", test);
+    console.log("mon test", test);
     const html = getHtml(parsedReq, test);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
