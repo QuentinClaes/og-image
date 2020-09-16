@@ -1,7 +1,6 @@
 // import { readFileSync } from "fs";
 // import { sanitizeHtml } from "./sanitizer";
 // import { ParsedRequest } from "./types";
-
 // const rglr = readFileSync(
 //   `${__dirname}/../_fonts/Inter-Regular.woff2`
 // ).toString("base64");
@@ -282,7 +281,7 @@ export function getHtml() {
       </div>
 
       <div class="review-footer">
-        <img src="/Logotype.png" />
+        <img src="https://i.ibb.co/ySgQGhz/Logotype.png" />
       </div>
     </div>
   </body>
