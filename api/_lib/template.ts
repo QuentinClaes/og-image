@@ -12,87 +12,211 @@ const mono = readFileSync(`${__dirname}/../_fonts/Vera-Mono.woff2`).toString(
   "base64"
 );
 
-function getCss(theme: string, fontSize: string) {
-  let background = "white";
-  let foreground = "black";
-  let radial = "lightgray";
+function getCss() {
+  // let background = "white";
+  // let foreground = "black";
+  // let radial = "lightgray";
 
-  if (theme === "dark") {
-    background = "black";
-    foreground = "white";
-    radial = "dimgray";
-  }
+  // if (theme === "dark") {
+  //   background = "black";
+  //   foreground = "white";
+  //   radial = "dimgray";
+  // }
   return `
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: normal;
-        src: url(data:font/woff2;charset=utf-8;base64,${rglr}) format('woff2');
+      html, body, div, span, applet, object, iframe,
+    h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+    a, abbr, acronym, address, big, cite, code,
+    del, dfn, em, img, ins, kbd, q, s, samp,
+    small, strike, strong, sub, sup, tt, var,
+    b, u, i, center,
+    dl, dt, dd, ol, ul, li,
+    fieldset, form, label, legend,
+    table, caption, tbody, tfoot, thead, tr, th, td,
+    article, aside, canvas, details, embed,
+    figure, figcaption, footer, header, hgroup,
+    menu, nav, output, ruby, section, summary,
+    time, mark, audio, video {
+      margin: 0;
+      padding: 0;
+      border: 0;
+      font-size: 100%;
+      font: inherit;
+      vertical-align: baseline;
     }
-    @font-face {
-        font-family: 'Inter';
-        font-style:  normal;
-        font-weight: bold;
-        src: url(data:font/woff2;charset=utf-8;base64,${bold}) format('woff2');
+    article, aside, details, figcaption, figure,
+    footer, header, hgroup, menu, nav, section {
+      display: block;
     }
-    @font-face {
-        font-family: 'Vera';
-        font-style: normal;
-        font-weight: normal;
-        src: url(data:font/woff2;charset=utf-8;base64,${mono})  format("woff2");
-      }
     body {
-        background: ${background};
-        border: solid red 2px;
-        background-image: radial-gradient(circle at 25px 25px, ${radial} 2%, transparent 0%), radial-gradient(circle at 75px 75px, ${radial} 2%, transparent 0%);
-        background-size: 100px 100px;
-        height: 627px;
-        width: 1200px;
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
+      line-height: 1;
     }
-    code {
-        color: #D400FF;
-        font-family: 'Vera';
-        white-space: pre-wrap;
-        letter-spacing: -5px;
+    ol, ul {
+      list-style: none;
     }
-    code:before, code:after {
-        content: '\`';
+    blockquote, q {
+      quotes: none;
     }
-    .logo-wrapper {
-        display: flex;
-        align-items: center;
-        align-content: center;
-        justify-content: center;
-        justify-items: center;
+    blockquote:before, blockquote:after,
+    q:before, q:after {
+      content: '';
+      content: none;
     }
-    .logo {
-        margin: 0 75px;
+    table {
+      border-collapse: collapse;
+      border-spacing: 0;
     }
-    .plus {
-        color: #BBB;
-        font-family: Times New Roman, Verdana;
-        font-size: 100px;
+
+    html {
+      box-sizing: border-box;
     }
-    .spacer {
-        margin: 150px;
+    *, *:before, *:after {
+      box-sizing: inherit;
     }
-    .emoji {
-        height: 1em;
-        width: 1em;
-        margin: 0 .05em 0 .1em;
-        vertical-align: -0.1em;
+
+    body {
+      background: #0b4d76;
+      color: white;
+      font-family: "pragmatica-slabserif";
+      height: 627px;
+      width: 1200px;
     }
-    .heading {
-        font-family: 'Inter', sans-serif;
-        font-size: ${sanitizeHtml(fontSize)};
-        font-style: normal;
-        color: ${foreground};
-        line-height: 1.8;
-    }`;
+    .review-container {
+      padding: 60px 100px 0px 100px;
+      font-size: 40px;
+    }
+    .review-header {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 20px;
+    }
+    .review-header div {
+      display: flex;
+    }
+    .review-header-rating img {
+      margin: 2px;
+    }
+    .review-header-picture {
+      margin-right: 40px;
+      position: relative;
+      height: 160px;
+      width: 160px;
+      top: 0;
+      left: 0;
+      display: flex;
+      margin-bottom: 20px;
+    }
+    .review-header-picture img {
+      border-radius: 5px;
+      position: relative;
+      top: 0;
+      left: 0;
+      display: flex;
+      width: 100%;
+      height: auto;
+    }
+    .review-header-user {
+      display: flex;
+      flex-direction: column;
+    }
+    .review-header-user .review-header-user-name {
+      font-weight: bolder;
+      margin-bottom: 20px;
+    }
+    .company-size {
+      background-color: white;
+      color: #0b4d76;
+      border-radius: 10px;
+      padding: 0 12px;
+      padding-top: 8px;
+      padding-bottom: 6px;
+      margin-top: -5px;
+      margin-left: 30px;
+    }
+    .company-size span {
+      font-family: "ainslie-sans";
+      font-weight: bold;
+      font-size: 30px;
+    }
+    .review-header-user .review-header-user-position,
+    .review-header-user .review-header-user-company {
+      color: #74a9ca;
+      font-family: "ainslie-sans";
+      text-transform: uppercase;
+      font-size: 30px;
+      margin: 6px 0;
+    }
+    .review-header-user .review-header-user-company {
+      font-weight: bolder;
+    }
+    .provider-rating {
+      display: block !important;
+    }
+    .logo-area {
+      background-color: white;
+      text-align: center;
+      min-width: 180px;
+      max-width: 180px;
+      max-height: 180px;
+      padding: 20px;
+      height: fit-content;
+      width: fit-content;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      margin: auto;
+    }
+    .logo-area img {
+      display: flex;
+      width: auto;
+      height: auto;
+      max-width: 100%;
+      max-height: 100%;
+      margin: auto;
+    }
+
+    .stars {
+      height: 64px;
+      background-color: #ff6169;
+      border-radius: 10px;
+      text-align: center;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .stars img {
+      height: auto;
+      width: 36px;
+      margin: auto 6px;
+    }
+
+    .review-title {
+      font-weight: bold;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 10px;
+      margin-bottom: 40px;
+    }
+    .review-content {
+      color: #74a9ca;
+      font-size: 26px;
+      line-height: 1.3;
+    }
+    .review-footer {
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      background: #03436b;
+      height: 75px;
+      width: 100%;
+      padding-left: 100px;
+      display: flex;
+    }
+    .review-footer img {
+      height: fit-content;
+      width: auto;
+      margin: auto 0;
+    }
+`;
 }
 
 export function getHtml(parsedReq: ParsedRequest, test: object) {
@@ -102,18 +226,64 @@ export function getHtml(parsedReq: ParsedRequest, test: object) {
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
-    <title>Generated Image</title>
+    <title>Cuustomer review</title>
+    <link rel="stylesheet" href="https://use.typekit.net/qrj1sqs.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        ${getCss(theme, fontSize)}
+        ${getCss()}
     </style>
-    <body>
+  <body>
+    <div class="review-container">
+      <div class="review-header">
         <div>
-            <div class="spacer">
-            <h2>www.cuustomer.com   </h2>
-            <h3>rating ${rating} de la review</h3>
-            <h3>id ${id} de la review</h3>
+          <div class="review-header-picture">
+            <img src="/Profile Picture.png" />
+          </div>
+          <div class="review-header-user">
+            <div>
+              <span class="review-header-user-name"> John D. </span>
+              <span>
+                <div class="company-size">
+                  <span>PME</span>
+                </div>
+              </span>
+            </div>
+            <span class="review-header-user-position"> AuthorTitle </span>
+            <span class="review-header-user-company"> AuthorCompanyName </span>
+          </div>
         </div>
-    </body>
+        <div class="provider-rating">
+          <div class="logo-area">
+            <img src="/octa-shrink.jpeg" />
+          </div>
+          <div class="review-header-rating">
+            <div class="stars">
+              <img src="/cuu_star_full.png" />
+              <img src="/cuu_star_full.png" />
+              <img src="/cuu_star_full.png" />
+              <img src="/cuu_star_half.png" />
+              <img src="/cuu_star_empty.png" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="review-title">
+        <span>Title</span>
+      </div>
+      <div class="review-content">
+        <span>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue
+          ante eu rutrum rutrum. Aenean non quam faucibus ligula suscipit
+          maximus eget at purus. Vestibulum vel imperdiet felis, ac convallis
+          massa. Proin lectus orci, consequat quis malesuada id, pharetra in
+          magna ...
+        </span>
+      </div>
+
+      <div class="review-footer">
+        <img src="/Logotype.png" />
+      </div>
+    </div>
+  </body>
 </html>`;
 }
