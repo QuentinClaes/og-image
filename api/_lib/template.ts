@@ -258,11 +258,11 @@ export function getHtml() {
           </div>
           <div class="review-header-rating">
             <div class="stars">
-              <img src="/cuu_star_full.png" />
-              <img src="/cuu_star_full.png" />
-              <img src="/cuu_star_full.png" />
-              <img src="/cuu_star_half.png" />
-              <img src="/cuu_star_empty.png" />
+              <img src="https://i.ibb.co/xFcZf7D/cuu-star-full.png" />
+              <img src="https://i.ibb.co/xFcZf7D/cuu-star-full.png" />
+              <img src="https://i.ibb.co/xFcZf7D/cuu-star-full.png" />
+              <img src="https://i.ibb.co/w43Xhs2/cuu-star-half.png" />
+              <img src="https://i.ibb.co/ZcYPdwX/cuu-star-empty.png" />
             </div>
           </div>
         </div>
