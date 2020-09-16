@@ -223,7 +223,7 @@ function getCss() {
 export function getHtml() {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
-  console.log("test2 dans le brol");
+  console.log("test dans template.tsx");
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
