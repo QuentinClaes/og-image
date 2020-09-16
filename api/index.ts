@@ -18,7 +18,7 @@ function getData(parsedReq: ParsedRequest) {
     },
     data: {
       query: `query {
-          reviews(where:{provider:{name: "${text ? text : "Proximus"}"}, id: ${id}}){
+          reviews(where:{provider:{name: "${text ? text : "Proximus"}"}, id: ${id ? id : 94}}){
             id
             title
             content
@@ -38,9 +38,10 @@ export default async function handler(
   try {
     const parsedReq = parseRequest(req);
     const test = await getData(parsedReq);
-    console.log("mon test ", test.reviews);
+    const Data = test.review[0]
+    console.log("mon test ", test);
     // const html = getHtml(parsedReq, test);
-    const html = getHtml();
+    const html = getHtml(Data);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);
@@ -54,6 +55,7 @@ export default async function handler(
       "Cache-Control",
       `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
     );
+    // res.end(test)
     res.end(file);
   } catch (e) {
     res.statusCode = 500;
