@@ -38,10 +38,9 @@ export default async function handler(
   try {
     const parsedReq = parseRequest(req);
     const test = await getData(parsedReq);
-    const Data = test.review[0]
     console.log("mon test ", test);
     // const html = getHtml(parsedReq, test);
-    const html = getHtml(Data);
+    const html = getHtml();
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
       res.end(html);
