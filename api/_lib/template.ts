@@ -1,6 +1,6 @@
 // import { readFileSync } from "fs";
 // import { sanitizeHtml } from "./sanitizer";
-import { ParsedRequest } from "./types";
+// import { ParsedRequest } from "./types";
 
 // const rglr = readFileSync(
 //   `${__dirname}/../_fonts/Inter-Regular.woff2`
