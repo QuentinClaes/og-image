@@ -37,6 +37,8 @@ export default async function handler(
   const parsedReq = parseRequest(req);
   const test = await getData(parsedReq);
   console.log("mon test ", test);
+  console.log("mon test dans inde.ts");
+
   try {
     const html = getHtml(parsedReq, test);
     if (isHtmlDebug) {
