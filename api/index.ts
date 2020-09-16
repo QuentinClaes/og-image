@@ -5,6 +5,7 @@ import { parseRequest } from "./_lib/parser";
 import { getHtml } from "./_lib/template";
 import { ParsedRequest } from "./_lib/types";
 
+
 const isDev = !process.env.AWS_REGION;
 const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
 

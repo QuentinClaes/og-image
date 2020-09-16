@@ -223,7 +223,7 @@ function getCss() {
 export function getHtml() {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
-  console.log("test2 dans le brol");
+  console.log("test dans template.tsx");
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -275,7 +275,7 @@ export function getHtml() {
         <span>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam congue
           ante eu rutrum rutrum. Aenean non quam faucibus ligula suscipit
-          maximus eget at purus. Vestibulum vel imperdiet felis, ac convallis
+          maximus eget at purus. Vestibulum vel imperdiet felis,c convallis
           massa. Proin lectus orci, consequat quis malesuada id, pharetra in
           magna ...
         </span>
