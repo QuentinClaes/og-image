@@ -204,10 +204,10 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: any) {
+export function getHtml() {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
-  console.log("test dans template.tsx", Data);
+  console.log("test dans template.tsx");
   return `<!DOCTYPE html>
 <html>
     <meta charset="utf-8">
@@ -247,7 +247,7 @@ export function getHtml(Data: any) {
         </div>
       </div>
       <div class="review-title">
-        <span>${Data.id}</span>
+        <span>title</span>
       </div>
       <div class="review-content">
         <span>
