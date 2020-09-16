@@ -29,7 +29,6 @@ function getData(parsedReq: ParsedRequest) {
   }).then((result: any) => {
     return result;
   });
-  console.log('mon test dnas ma function', test)
   return test;
 }
 export default async function handler(
@@ -40,7 +39,6 @@ export default async function handler(
     const parsedReq = parseRequest(req)
     const test = await getData(parsedReq);
     console.log("mon test ", test);
-    console.log("mon test dans inde.ts");
     const html = getHtml(parsedReq, test);
     if (isHtmlDebug) {
       res.setHeader("Content-Type", "text/html");
