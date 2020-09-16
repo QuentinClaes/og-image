@@ -18,7 +18,7 @@ function getData(parsedReq: ParsedRequest) {
     },
     data: {
       query: `query {
-          reviews(where:{provider:{name: "${text}"}, id: ${id}}){
+          reviews(where:{provider:{name: "${text ? text : "Proximus"}"}, id: ${id}}){
             id
             title
             content
