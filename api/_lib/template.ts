@@ -221,7 +221,6 @@ export function getHtml(Data: string, Content: string, CompanyTitle: string, Com
         <div>
           <div class="review-header-picture">
             <img src=${ImgUrl}/>
-            <a>${ImgUrl}</a>
           </div>
           <div class="review-header-user">
             <div>
@@ -251,6 +250,7 @@ export function getHtml(Data: string, Content: string, CompanyTitle: string, Com
       <div class="review-content">
         <span>
           ${Content}
+          <a>${ImgUrl}</a>
         </span>
       </div>
 
