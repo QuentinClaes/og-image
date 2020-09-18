@@ -12,6 +12,7 @@
     "chrome-aws-lambda": "2.1.1",
     "contentful": "7.14.6",
     "marked": "0.8.2",
+    "messaging-api-slack": "1.0.0",
     "puppeteer-core": "2.1.1",
     "twemoji": "12.1.5"
   },
