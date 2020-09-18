@@ -1,18 +1,12 @@
 const contentful = require("contentful");
 
 
-  async function getClient() {
+export async function getImage(ImageLabel: string) {
     const client = contentful.createClient({
         space: "w0han2rpch8u",
         accessToken:
           "ce8fb2651021f7e589b33562cc14964fe5b865f6dfd3569a9948d2aa24d48304",
       });
-
-    return client;
-}
-
-export async function getImage(ImageLabel: string) {
-    const client = await getClient();
     const img = client
     .getAssets({
       include: 4,
