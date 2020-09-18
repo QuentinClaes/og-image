@@ -220,7 +220,7 @@ export function getHtml(Data: string, Content: string, CompanyTitle: string, Com
       <div class="review-header">
         <div>
           <div class="review-header-picture">
-            <img src="https://i.ibb.co/x7F6Tgb/Profile-Picture.png" />
+            <img src=${ImgUrl}/>
           </div>
           <div class="review-header-user">
             <div>
@@ -246,7 +246,6 @@ export function getHtml(Data: string, Content: string, CompanyTitle: string, Com
       </div>
       <div class="review-title">
         <span>${Data}</span>
-        <span>${ImgUrl}</span>
       </div>
       <div class="review-content">
         <span>
