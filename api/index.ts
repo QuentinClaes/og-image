@@ -1,12 +1,12 @@
 import axios from "axios";
 import { IncomingMessage, ServerResponse } from "http";
-// import { getScreenshot } from "./_lib/chromium";
+import { getScreenshot } from "./_lib/chromium";
 import { parseRequest } from "./_lib/parser";
 import { getHtml } from "./_lib/template";
 import { ParsedRequest } from "./_lib/types";
 import { getImage } from "./_lib/contentful"
 
-// const isDev = !process.env.AWS_REGION;
+const isDev = !process.env.AWS_REGION;
 
 
 function getData(parsedReq: ParsedRequest) {
@@ -58,15 +58,15 @@ export default async function handler(
     const Logo = test.data.reviews[0].provider.logo
     const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl);
     const { fileType } = parsedReq;
-    // const file = await getScreenshot(html, fileType, isDev);
+    const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
     res.setHeader("Content-Type", `image/${fileType}`);
     res.setHeader(
       "Cache-Control",
       `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
     );
-    // res.end(file);
-    res.end(html);
+    res.end(file);
+    // res.end(html);
   } catch (e) {
     res.statusCode = 500;
     res.setHeader("Content-Type", "text/html");
