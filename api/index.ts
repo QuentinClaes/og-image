@@ -6,16 +6,13 @@ import { getHtml } from "./_lib/template";
 import { ParsedRequest } from "./_lib/types";
 
 const isDev = !process.env.AWS_REGION;
-const isHtmlDebug = process.env.OG_HTML_DEBUG === "1";
+
 
 function getData(parsedReq: ParsedRequest) {
   const { text, id } = parsedReq;
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
-    headers: {
-      Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkYXRhIjp7InNlcnZpY2UiOiJjdXVzdG9tZXItbmV3LWFwaUBkZXYiLCJyb2xlcyI6WyJhZG1pbiJdfSwiaWF0IjoxNTk5NjkzOTc5LCJleHAiOjE2MDAyOTg3Nzl9.sFDXbxUJ6DSndPpyeVpKYaGLuZuWENbsqLZihrVpl_A`,
-    },
     data: {
       query: `query {
           reviews(where:{provider:{name: "${text ? text : "Proximus"}"}, id: ${id ? id : 94}}){
@@ -56,11 +53,6 @@ export default async function handler(
     const CompanyName = test.data.reviews[0].author.companyName
     const Logo = test.data.reviews[0].provider.logo
     const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name, ImageRating, Logo);
-    if (isHtmlDebug) {
-      res.setHeader("Content-Type", "text/html");
-      res.end(html);
-      return;
-    }
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
@@ -69,7 +61,6 @@ export default async function handler(
       "Cache-Control",
       `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
     );
-    // res.end(test)
     res.end(file);
   } catch (e) {
     res.statusCode = 500;
