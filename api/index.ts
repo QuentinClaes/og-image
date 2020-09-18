@@ -52,6 +52,7 @@ export default async function handler(
     const Content = test.data.reviews[0].content
     const Name = test.data.reviews[0].author.name
     const ImgUrl = await getImage(test.data.reviews[0].author.userId)
+    console.log('mon image', ImgUrl)
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const Logo = test.data.reviews[0].provider.logo
