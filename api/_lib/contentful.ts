@@ -24,5 +24,5 @@ export async function getImage(ImageLabel: string) {
           console.log(asset);
         });
     })
-    return img;
+    return "test";
 }
