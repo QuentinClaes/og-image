@@ -234,46 +234,32 @@ export function getHtml(
           </div>
           <div class="review-header-user">
             <div>
-              <span class="review-header-user-name"> ${
-                Name ? Name : "...Name..."
-              }</span>
+              <span class="review-header-user-name"> ${Name}</span>
               <span>
                 <div class="company-size">
                   <span>PME</span>
                 </div>
               </span>
             </div>
-            <span class="review-header-user-position"> ${
-              CompanyTitle ? CompanyTitle : "...company title..."
-            } </span>
-            <span class="review-header-user-company"> ${
-              CompanyName ? CompanyName : "...company name..."
-            } </span>
+            <span class="review-header-user-position"> ${CompanyTitle} </span>
+            <span class="review-header-user-company"> ${CompanyName} </span>
           </div>
         </div>
         <div class="provider-rating">
           <div class="logo-area">
-            <img src="${
-              Logo
-                ? Logo
-                : "https://images.ctfassets.net/w0han2rpch8u/59pw05uTfeWM5cgnhgG7Nf/cb3b1b734b3d96574f320af57d758d46/vivawallet.png?fm=jpg&fl=progressive&w=270&h=100"
-            }" />
+            <img src="${Logo}" />
           </div>
           <div class="review-header-rating">
-            <img src="${
-              ImageRating
-                ? ImageRating
-                : "https://images.theconversation.com/files/150763/original/image-20161219-24307-2d95hz.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
-            }" />
+            <img src="${ImageRating}" />
           </div>
         </div>
       </div>
       <div class="review-title">
-        <span>${Data ? Data : "...title..."}</span>
+        <span>${Data}</span>
       </div>
       <div class="review-content">
         <span>
-          ${Content ? Content : "...content..."}
+          ${Content}
         </span>
       </div>
 
