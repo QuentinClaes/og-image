@@ -16,7 +16,8 @@ export async function getImage(ImageLabel: string) {
       const test = client
         .getAsset(response.items[0].sys.id)
         .then((asset: any) => {
-            var url = `https:${asset.fields.file.url}?fm=jpg&w=200&h=200`
+            var url = `https:${asset.fields.file.url}?fit=pad&fl=progressive&fm=jpg&w=2OO&h=200`
+            
             return  url 
             }   
             )
