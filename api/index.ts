@@ -4,6 +4,7 @@ import { getScreenshot } from "./_lib/chromium";
 import { parseRequest } from "./_lib/parser";
 import { getHtml } from "./_lib/template";
 import { ParsedRequest } from "./_lib/types";
+import { getImage } from "./_lib/contentful"
 
 const isDev = !process.env.AWS_REGION;
 
@@ -28,6 +29,7 @@ function getData(parsedReq: ParsedRequest) {
               companyName
               title
               companySize
+              userId
             }
           }
         }`,
@@ -49,10 +51,11 @@ export default async function handler(
     const Title = test.data.reviews[0].title
     const Content = test.data.reviews[0].content
     const Name = test.data.reviews[0].author.name
+    const ImgUrl = await getImage(test.data.reviews[0].author.userId)
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const Logo = test.data.reviews[0].provider.logo
-    const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name, ImageRating, Logo);
+    const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl);
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
