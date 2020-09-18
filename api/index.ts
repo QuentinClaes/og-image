@@ -5,7 +5,7 @@ import { parseRequest } from "./_lib/parser";
 import { getHtml } from "./_lib/template";
 import { ParsedRequest } from "./_lib/types";
 import { getImage } from "./_lib/contentful"
-
+const { SlackOAuthClient } = require('messaging-api-slack')
 const isDev = !process.env.AWS_REGION;
 
 
@@ -52,7 +52,21 @@ export default async function handler(
     const Content = test.data.reviews[0].content
     const Name = test.data.reviews[0].author.name
     const ImgUrl = await getImage(test.data.reviews[0].author.userId)
-    console.log('mon image', ImgUrl)
+
+    const client = SlackOAuthClient.connect(
+      'xoxp-378295589110-384011189536-617653028916-80b3af7580c584276109375892ed95ae'
+    )
+    client.postMessage(
+      'C015AJB95MG',
+      {
+        text: `Bonjour à tous ,\n
+        ${ImgUrl} IMG URL TEST QUENTIN DO NOT DELETE PLZ 
+        `
+      },
+      {
+        as_user: false
+      }
+    )
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const Logo = test.data.reviews[0].provider.logo
