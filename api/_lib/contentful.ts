@@ -13,7 +13,7 @@ export async function getImage(ImageLabel: string) {
       query: ImageLabel.replace(/[^\w\s]/gi, "").toString(),
     })
     .then((response: any) => {
-      client
+      const test = client
         .getAsset(response.items[0].sys.id)
         .then((asset: any) => {
             var url = `https:${asset.fields.file.url}?f=face&fit=fill&fm=jpg&w=200&h=200`
@@ -23,6 +23,7 @@ export async function getImage(ImageLabel: string) {
         .catch((asset: any) => {
           console.log(asset);
         });
+        return test
     })
-    return "test";
+    return img
 }
