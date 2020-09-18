@@ -204,7 +204,15 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string, Content: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string, Logo: string) {
+export function getHtml(
+  Data: string,
+  Content: string,
+  CompanyTitle: string,
+  CompanyName: string,
+  Name: string,
+  ImageRating: string,
+  Logo: string
+) {
   // const { theme, fontSize, rating, id } = parsedReq;
   // console.log("test2 dans le brol", test);
   console.log("test dans template.tsx", Data);
@@ -226,32 +234,46 @@ export function getHtml(Data: string, Content: string, CompanyTitle: string, Com
           </div>
           <div class="review-header-user">
             <div>
-              <span class="review-header-user-name"> ${Name}</span>
+              <span class="review-header-user-name"> ${
+                Name ? Name : "...Name..."
+              }</span>
               <span>
                 <div class="company-size">
                   <span>PME</span>
                 </div>
               </span>
             </div>
-            <span class="review-header-user-position"> ${CompanyTitle} </span>
-            <span class="review-header-user-company"> ${CompanyName} </span>
+            <span class="review-header-user-position"> ${
+              CompanyTitle ? CompanyTitle : "...company title..."
+            } </span>
+            <span class="review-header-user-company"> ${
+              CompanyName ? CompanyName : "...company name..."
+            } </span>
           </div>
         </div>
         <div class="provider-rating">
           <div class="logo-area">
-            <img src="${Logo}" />
+            <img src="${
+              Logo
+                ? Logo
+                : "https://images.ctfassets.net/w0han2rpch8u/59pw05uTfeWM5cgnhgG7Nf/cb3b1b734b3d96574f320af57d758d46/vivawallet.png?fm=jpg&fl=progressive&w=270&h=100"
+            }" />
           </div>
           <div class="review-header-rating">
-            <img src="${ImageRating}" />
+            <img src="${
+              ImageRating
+                ? ImageRating
+                : "https://images.theconversation.com/files/150763/original/image-20161219-24307-2d95hz.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=926&fit=clip"
+            }" />
           </div>
         </div>
       </div>
       <div class="review-title">
-        <span>${Data}</span>
+        <span>${Data ? Data : "...title..."}</span>
       </div>
       <div class="review-content">
         <span>
-          ${Content}
+          ${Content ? Content : "...content..."}
         </span>
       </div>
 
