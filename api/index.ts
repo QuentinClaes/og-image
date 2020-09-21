@@ -9,7 +9,7 @@ const isDev = !process.env.AWS_REGION;
 
 
 function getData(parsedReq: ParsedRequest) {
-  const { text, id } = parsedReq;
+  const { text, id, locale } = parsedReq;
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
@@ -54,7 +54,8 @@ export default async function handler(
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const Logo = test.data.reviews[0].provider.logo
-    const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl);
+    const lang = parsedReq.locale
+    const html = getHtml(Title, Content, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl, lang);
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
