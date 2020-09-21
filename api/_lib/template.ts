@@ -211,7 +211,9 @@ export function getHtml(
   ImageRating: string,
   Logo: string,
   ImgUrl: string,
-  Contenu: string
+  Contenu: string,
+  familyName: string, 
+  givenName: string
 ) {
   console.log("test dans template.tsx", Data);
   return `<!DOCTYPE html>
@@ -231,7 +233,7 @@ export function getHtml(
             <img src="${ImgUrl}"/>
           </div>
           <div class="review-header-user">
-            <p class="review-header-user-name"> ${Name}</p>
+            <p class="review-header-user-name"> ${givenName} ${familyName[0]}.</p>
             <p class="review-header-user-position"> ${CompanyTitle} </p>
             <p class="review-header-user-company"> ${CompanyName} </p>
             <div class="company-size">

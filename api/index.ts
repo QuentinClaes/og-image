@@ -35,6 +35,8 @@ function getData(parsedReq: ParsedRequest) {
               title
               companySize
               userId
+              familyName
+              givenName
             }
           }
         }`,
@@ -60,8 +62,10 @@ export default async function handler(
     const ImgUrl = await getImage(test.data.reviews[0].author.userId)
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
+    const familyName = test.data.reviews[0].author.familyName
+    const givenName = test.data.reviews[0].author.givenName
     const Logo = test.data.reviews[0].provider.logo
-    const html = getHtml(Title, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl, Contenu);
+    const html = getHtml(Title, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl, Contenu, familyName, givenName);
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
