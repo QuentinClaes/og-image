@@ -18,6 +18,9 @@ function getData(parsedReq: ParsedRequest) {
           reviews(where:{provider:{name: "${text ? text : "Proximus"}"}, id: ${id ? id : 94}}){
             id
             title
+            titleFr
+            titleNl
+            titleEn
             content
             contentFr
             contentNl
@@ -51,8 +54,8 @@ export default async function handler(
     const test = await getData(parsedReq);
     const ImagesRatingArray = ["https://i.ibb.co/6NbqYPN/stars1.png","https://i.ibb.co/F5nNGgv/stars3.png","https://i.ibb.co/xCSz4qg/stars2.png","https://i.ibb.co/5hGbmTS/stars4.png","https://i.ibb.co/F0zKX6w/stars5.png"]
     const ImageRating = ImagesRatingArray[test.data.reviews[0].rating - 1]
-    const Title = test.data.reviews[0].title
-    var Contenu = locale === "Fr" ? test.data.reviews[0].contentFr : test.data.reviews[0].contentEn
+    var Title = locale === "Fr" ? test.data.reviews[0].titleFr : locale === "Nl" ? test.data.reviews[0].titleNl : test.data.reviews[0].titleEn
+    var Contenu = locale === "Fr" ? test.data.reviews[0].contentFr : locale === "Nl" ? test.data.reviews[0].contentNl : test.data.reviews[0].contentEn
     const Name = test.data.reviews[0].author.name
     const ImgUrl = await getImage(test.data.reviews[0].author.userId)
     const CompanyTitle = test.data.reviews[0].author.title
