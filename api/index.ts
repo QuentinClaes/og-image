@@ -19,6 +19,9 @@ function getData(parsedReq: ParsedRequest) {
             id
             title
             content
+            contentFr
+            contentNl
+            contentEn
             rating
             provider {
               logo
