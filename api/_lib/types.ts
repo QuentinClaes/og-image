@@ -12,5 +12,5 @@ export interface ParsedRequest {
   heights: string[];
   rating: string[];
   id: string[];
-  locale: string;
+  locale: string[];
 }
