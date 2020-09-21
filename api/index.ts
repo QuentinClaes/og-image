@@ -54,6 +54,8 @@ export default async function handler(
     const parsedReq = parseRequest(req);
     const { locale } = parsedReq;
     const test = await getData(parsedReq);
+    const PmeArray = [{freelance: "freelance", pme: "FREELANCE", grande: "Grande entreprise"}, {freelance: "freelance nl", pme: "PME NL", grande: "Grande entreprise NL"}, {freelance: "freelance EN", pme: "PME EN", grande: "Grande entreprise EN"}]
+    const PME = PmeArray[locale === 'fr' ? 1 : locale === 'nl' ? 2 : 3].[test.data.reviews[0].author.companySize === "1" ? 1 : test.data.reviews[0].author.companySize === "2-10" ? 2 : 3]
     const ImagesRatingArray = ["https://i.ibb.co/6NbqYPN/stars1.png","https://i.ibb.co/F5nNGgv/stars3.png","https://i.ibb.co/xCSz4qg/stars2.png","https://i.ibb.co/5hGbmTS/stars4.png","https://i.ibb.co/F0zKX6w/stars5.png"]
     const ImageRating = ImagesRatingArray[test.data.reviews[0].rating - 1]
     var Title = locale === "fr" ? test.data.reviews[0].titleFr : locale === "nl" ? test.data.reviews[0].titleNl : test.data.reviews[0].titleEn
@@ -64,7 +66,7 @@ export default async function handler(
     const familyName = test.data.reviews[0].author.familyName
     const givenName = test.data.reviews[0].author.givenName
     const Logo = test.data.reviews[0].provider.logo
-    const html = getHtml(Title, CompanyTitle, CompanyName, ImageRating, Logo, ImgUrl, Contenu, familyName, givenName);
+    const html = getHtml(Title, CompanyTitle, CompanyName, ImageRating, Logo, ImgUrl, Contenu, familyName, givenName, PME);
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
