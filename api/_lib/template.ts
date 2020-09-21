@@ -98,8 +98,8 @@ function getCss() {
     .review-header-picture {
       margin-right: 40px;
       position: relative;
-      height: 160px;
-      width: 160px;
+      height: 182px;
+      width: 182px;
       top: 0;
       left: 0;
       display: flex;
@@ -120,7 +120,7 @@ function getCss() {
     }
     .review-header-user .review-header-user-name {
       font-weight: bolder;
-      margin-bottom: 20px;
+      margin-bottom: 12px;
     }
     .company-size {
       background-color: white;
@@ -129,8 +129,7 @@ function getCss() {
       padding: 0 12px;
       padding-top: 8px;
       padding-bottom: 6px;
-      margin-top: -5px;
-      margin-left: 30px;
+      width: fit-content;
     }
     .company-size span {
       font-family: "ainslie-sans";
@@ -204,7 +203,16 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string, Logo: string, ImgUrl: string, Contenu: string) {
+export function getHtml(
+  Data: string,
+  CompanyTitle: string,
+  CompanyName: string,
+  Name: string,
+  ImageRating: string,
+  Logo: string,
+  ImgUrl: string,
+  Contenu: string
+) {
   console.log("test dans template.tsx", Data);
   return `<!DOCTYPE html>
 <html>
@@ -223,16 +231,12 @@ export function getHtml(Data: string, CompanyTitle: string, CompanyName: string,
             <img src="${ImgUrl}"/>
           </div>
           <div class="review-header-user">
-            <div>
-              <span class="review-header-user-name"> ${Name}</span>
-              <span>
-                <div class="company-size">
-                  <span></span>
-                </div>
-              </span>
+            <p class="review-header-user-name"> ${Name}</p>
+            <p class="review-header-user-position"> ${CompanyTitle} </p>
+            <p class="review-header-user-company"> ${CompanyName} </p>
+            <div class="company-size">
+              <span>PME</span>
             </div>
-            <span class="review-header-user-position"> ${CompanyTitle} </span>
-            <span class="review-header-user-company"> ${CompanyName} </span>
           </div>
         </div>
         <div class="provider-rating">
