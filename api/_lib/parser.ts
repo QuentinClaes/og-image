@@ -37,7 +37,7 @@ export function parseRequest(req: IncomingMessage) {
     heights: getArray(heights),
     rating: getArray(rating),
     id: getArray(id),
-    locale: getArray(locale)
+    locale: locale === "en" ? "En" : locale === "nl" ? "Nl" : "Fr" 
   };
   parsedRequest.images = getDefaultImages(
     parsedRequest.images,
