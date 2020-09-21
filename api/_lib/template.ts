@@ -204,7 +204,7 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string, Logo: string, ImgUrl: string, Contenu: string) {
+export function getHtml(Data: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string, Logo: string, ImgUrl: string, Contenu: string, locale: string) {
   console.log("test dans template.tsx", Data);
   return `<!DOCTYPE html>
 <html>
