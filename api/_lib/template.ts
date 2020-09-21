@@ -227,7 +227,7 @@ export function getHtml(Data: string, CompanyTitle: string, CompanyName: string,
               <span class="review-header-user-name"> ${Name}</span>
               <span>
                 <div class="company-size">
-                  <span>PME</span>
+                  <span></span>
                 </div>
               </span>
             </div>
