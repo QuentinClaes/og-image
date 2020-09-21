@@ -57,7 +57,7 @@ export default async function handler(
     const PmeArrayFr = ["Freelance", "PME", "Grande Entreprise"]
     const PmeArrayNl = ["Zelfstandige", "KMO", "Grote Onderneming"]
     const PmeArrayEn = ["Freelance", "SME", "Big Company"]
-    const PME = locale === "fr" ? PmeArrayFr[test.data.reviews[0].author.companySize === "1" ? 1 : test.data.reviews[0].author.companySize === "2-10" ? 2 : 3] : locale === "nl" ? PmeArrayNl[test.data.reviews[0].author.companySize === "1" ? 1 : test.data.reviews[0].author.companySize === "2-10" ? 2 : 3] : PmeArrayEn[test.data.reviews[0].author.companySize === "1" ? 1 : test.data.reviews[0].author.companySize === "2-10" ? 2 : 3]
+    const PME = locale === "fr" ? PmeArrayFr[test.data.reviews[0].author.companySize === "1" ? 0 : test.data.reviews[0].author.companySize === "2-10" ? 1 : 2] : locale === "nl" ? PmeArrayNl[test.data.reviews[0].author.companySize === "1" ? 1 : test.data.reviews[0].author.companySize === "2-10" ? 2 : 3] : PmeArrayEn[test.data.reviews[0].author.companySize === "1" ? 1 : test.data.reviews[0].author.companySize === "2-10" ? 2 : 3]
     const ImagesRatingArray = ["https://i.ibb.co/6NbqYPN/stars1.png","https://i.ibb.co/F5nNGgv/stars3.png","https://i.ibb.co/xCSz4qg/stars2.png","https://i.ibb.co/5hGbmTS/stars4.png","https://i.ibb.co/F0zKX6w/stars5.png"]
     const ImageRating = ImagesRatingArray[test.data.reviews[0].rating - 1]
     var Title = locale === "fr" ? test.data.reviews[0].titleFr : locale === "nl" ? test.data.reviews[0].titleNl : test.data.reviews[0].titleEn
