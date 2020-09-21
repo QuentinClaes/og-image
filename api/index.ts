@@ -48,7 +48,6 @@ export default async function handler(
     const ImagesRatingArray = ["https://i.ibb.co/6NbqYPN/stars1.png","https://i.ibb.co/F5nNGgv/stars3.png","https://i.ibb.co/xCSz4qg/stars2.png","https://i.ibb.co/5hGbmTS/stars4.png","https://i.ibb.co/F0zKX6w/stars5.png"]
     const ImageRating = ImagesRatingArray[test.data.reviews[0].rating - 1]
     const Title = test.data.reviews[0].title
-    const Content = test.data.reviews[0].content
     var Contenu = parsedReq.locale ? test.data.reviews[0].contentFr : test.data.reviews[0].contentEn
     const Name = test.data.reviews[0].author.name
     const ImgUrl = await getImage(test.data.reviews[0].author.userId)
