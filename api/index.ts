@@ -58,14 +58,13 @@ export default async function handler(
     const ImageRating = ImagesRatingArray[test.data.reviews[0].rating - 1]
     var Title = locale === "Fr" ? test.data.reviews[0].titleFr : locale === "Nl" ? test.data.reviews[0].titleNl : test.data.reviews[0].titleEn
     var Contenu = locale === "Fr" ? test.data.reviews[0].contentFr : locale === "Nl" ? test.data.reviews[0].contentNl : test.data.reviews[0].contentEn
-    const Name = test.data.reviews[0].author.name
     const ImgUrl = await getImage(test.data.reviews[0].author.userId)
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const familyName = test.data.reviews[0].author.familyName
     const givenName = test.data.reviews[0].author.givenName
     const Logo = test.data.reviews[0].provider.logo
-    const html = getHtml(Title, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl, Contenu, familyName, givenName);
+    const html = getHtml(Title, CompanyTitle, CompanyName, ImageRating, Logo, ImgUrl, Contenu, familyName, givenName);
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;

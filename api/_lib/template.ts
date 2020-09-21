@@ -207,7 +207,6 @@ export function getHtml(
   Data: string,
   CompanyTitle: string,
   CompanyName: string,
-  Name: string,
   ImageRating: string,
   Logo: string,
   ImgUrl: string,
