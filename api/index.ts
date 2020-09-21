@@ -54,8 +54,7 @@ export default async function handler(
     const CompanyTitle = test.data.reviews[0].author.title
     const CompanyName = test.data.reviews[0].author.companyName
     const Logo = test.data.reviews[0].provider.logo
-    const locale = parsedReq.locale
-    const html = getHtml(Title, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl, Contenu, locale);
+    const html = getHtml(Title, CompanyTitle, CompanyName, Name, ImageRating, Logo, ImgUrl, Contenu);
     const { fileType } = parsedReq;
     const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;

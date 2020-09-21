@@ -204,7 +204,7 @@ function getCss() {
 }
 
 // export function getHtml(parsedReq: ParsedRequest, test: object) {
-export function getHtml(Data: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string, Logo: string, ImgUrl: string, Contenu: string, locale: string) {
+export function getHtml(Data: string, CompanyTitle: string, CompanyName: string, Name: string, ImageRating: string, Logo: string, ImgUrl: string, Contenu: string) {
   console.log("test dans template.tsx", Data);
   return `<!DOCTYPE html>
 <html>
@@ -227,7 +227,7 @@ export function getHtml(Data: string, CompanyTitle: string, CompanyName: string,
               <span class="review-header-user-name"> ${Name}</span>
               <span>
                 <div class="company-size">
-                  <span>${locale = "fr" ? "PME FR" : "PME NL/EN"}</span>
+                  <span>PME</span>
                 </div>
               </span>
             </div>
