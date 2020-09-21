@@ -9,7 +9,7 @@ const isDev = !process.env.AWS_REGION;
 
 
 function getData(parsedReq: ParsedRequest) {
-  const { text, id, locale } = parsedReq;
+  const { text, id} = parsedReq;
   const test = axios({
     url: "https://cuustomer-api-cafdaa7625.herokuapp.com/cuustomer-new-api/dev",
     method: "post",
