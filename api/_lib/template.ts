@@ -211,7 +211,7 @@ export function getHtml(
   Logo: string,
   ImgUrl: string,
   Contenu: string,
-  familyName: string, 
+  familyName: string,
   givenName: string,
   PME: string
 ) {
@@ -230,10 +230,12 @@ export function getHtml(
       <div class="review-header">
         <div>
           <div class="review-header-picture">
-            <img src="${ImgUrl}"/>
+            <img src='${ImgUrl}?f=face&fit=fill&fm=jpg&w=182&h=182'/>
           </div>
           <div class="review-header-user">
-            <p class="review-header-user-name"> ${givenName} ${familyName[0]}.</p>
+            <p class="review-header-user-name"> ${givenName} ${
+    familyName[0]
+  }.</p>
             <p class="review-header-user-position"> ${CompanyTitle} </p>
             <p class="review-header-user-company"> ${CompanyName} </p>
             <div class="company-size">
