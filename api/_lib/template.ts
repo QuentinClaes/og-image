@@ -120,7 +120,7 @@ function getCss() {
     }
     .review-header-user .review-header-user-name {
       font-weight: bolder;
-      margin-bottom: 12px;
+      margin-bottom: 6px;
     }
     .company-size {
       background-color: white;
@@ -130,6 +130,7 @@ function getCss() {
       padding-top: 8px;
       padding-bottom: 6px;
       width: fit-content;
+      margin-top: 8px;
     }
     .company-size span {
       font-family: "ainslie-sans";
