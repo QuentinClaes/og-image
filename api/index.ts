@@ -54,9 +54,7 @@ export default async function handler(
     const parsedReq = parseRequest(req);
     const { locale, text} = parsedReq;
     const test = await getData(parsedReq);
-    if (text === 'null'){
-      res.end('<html><body><img src="https://i.ibb.co/4FBcRZb/Screen-Dashboard.png"/></body></html>')
-    }
+    const Html2 = '<html><body><img src="https://i.ibb.co/4FBcRZb/Screen-Dashboard.png"/></body></html>'
     const PmeArrayFr = ["Freelance", "PME", "Grande Entreprise"]
     const PmeArrayNl = ["Zelfstandige", "KMO", "Grote Onderneming"]
     const PmeArrayEn = ["Freelance", "SME", "Big Company"]
@@ -73,7 +71,7 @@ export default async function handler(
     const Logo = test.data.reviews[0].provider.logo
     const html = getHtml(Title, CompanyTitle, CompanyName, ImageRating, Logo, ImgUrl, Contenu, familyName, givenName, PME);
     const { fileType } = parsedReq;
-    const file = await getScreenshot(html, fileType, isDev);
+    const file = await getScreenshot(text === 'null' ? Html2 : html, fileType, isDev)
     res.statusCode = 200;
     res.setHeader("Content-Type", `image/${fileType}`);
     res.setHeader(
@@ -81,7 +79,6 @@ export default async function handler(
       `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
     );
     res.end(file);
-    // res.end(html);
   } catch (e) {
     res.statusCode = 500;
     res.setHeader("Content-Type", "text/html");
