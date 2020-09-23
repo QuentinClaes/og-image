@@ -52,8 +52,11 @@ export default async function handler(
 ) {
   try {
     const parsedReq = parseRequest(req);
-    const { locale } = parsedReq;
+    const { locale, text} = parsedReq;
     const test = await getData(parsedReq);
+    if (text === 'null'){
+      res.end('https://i.ibb.co/4FBcRZb/Screen-Dashboard.png')
+    }
     const PmeArrayFr = ["Freelance", "PME", "Grande Entreprise"]
     const PmeArrayNl = ["Zelfstandige", "KMO", "Grote Onderneming"]
     const PmeArrayEn = ["Freelance", "SME", "Big Company"]
