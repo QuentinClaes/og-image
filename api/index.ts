@@ -55,7 +55,7 @@ export default async function handler(
     const { locale, text} = parsedReq;
     const test = await getData(parsedReq);
     if (text === 'null'){
-      res.end('https://i.ibb.co/4FBcRZb/Screen-Dashboard.png')
+      res.end('<html><body><img src="https://i.ibb.co/4FBcRZb/Screen-Dashboard.png"/></body></html>')
     }
     const PmeArrayFr = ["Freelance", "PME", "Grande Entreprise"]
     const PmeArrayNl = ["Zelfstandige", "KMO", "Grote Onderneming"]
