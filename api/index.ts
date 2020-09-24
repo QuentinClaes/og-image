@@ -53,7 +53,7 @@ export default async function handler(
 ) {
   try {
     const parsedReq = parseRequest(req);
-    const { locale, text } = parsedReq;
+    const { locale } = parsedReq;
     const test = await getData(parsedReq);
     const PmeArrayFr = ["Freelance", "PME", "Grande Entreprise"];
     const PmeArrayNl = ["Zelfstandige", "KMO", "Grote Onderneming"];
@@ -127,11 +127,7 @@ export default async function handler(
       PME
     );
     const { fileType } = parsedReq;
-    const file = await getScreenshot(
-      text === "null" ? Html2 : html,
-      fileType,
-      isDev
-    );
+    const file = await getScreenshot(html, fileType, isDev);
     res.statusCode = 200;
     res.setHeader("Content-Type", `image/${fileType}`);
     res.setHeader(
@@ -139,6 +135,7 @@ export default async function handler(
       `public, immutable, no-transform, s-maxage=31536000, max-age=31536000`
     );
     res.end(file);
+    // res.end(html);
   } catch (e) {
     res.statusCode = 500;
     res.setHeader("Content-Type", "text/html");
