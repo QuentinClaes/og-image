@@ -75,18 +75,30 @@ export default async function handler(
           ]
         : locale === "nl"
         ? PmeArrayNl[
-            test.data.reviews[0].author.companySize === "1"
-              ? 1
-              : test.data.reviews[0].author.companySize === "2-10"
+            test.data.reviews[0].author.companySize === "201-500" ||
+            test.data.reviews[0].author.companySize === "501-1000" ||
+            test.data.reviews[0].author.companySize === "1001-5000" ||
+            test.data.reviews[0].author.companySize === "5001-10000" ||
+            test.data.reviews[0].author.companySize === "10001+"
               ? 2
-              : 3
+              : test.data.reviews[0].author.companySize === "2-10" ||
+                test.data.reviews[0].author.companySize === "11-50" ||
+                test.data.reviews[0].author.companySize === "51-200"
+              ? 1
+              : 0
           ]
         : PmeArrayEn[
-            test.data.reviews[0].author.companySize === "1"
-              ? 1
-              : test.data.reviews[0].author.companySize === "2-10"
+            test.data.reviews[0].author.companySize === "201-500" ||
+            test.data.reviews[0].author.companySize === "501-1000" ||
+            test.data.reviews[0].author.companySize === "1001-5000" ||
+            test.data.reviews[0].author.companySize === "5001-10000" ||
+            test.data.reviews[0].author.companySize === "10001+"
               ? 2
-              : 3
+              : test.data.reviews[0].author.companySize === "2-10" ||
+                test.data.reviews[0].author.companySize === "11-50" ||
+                test.data.reviews[0].author.companySize === "51-200"
+              ? 1
+              : 0
           ];
     const ImagesRatingArray = [
       "https://i.ibb.co/6NbqYPN/stars1.png",
